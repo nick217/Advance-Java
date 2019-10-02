@@ -18,6 +18,10 @@
 
 	<bean id="myTennisCoach" class="com.practice.springdemo.TennisCoach">
 		<property name="fortuneService" ref="myFortune" />
+		<!-- Inject literal values -->
+		<property name="emailAddress" value="thebestcoach@springmail.com" />
+		<property name="team" value="mixed-Doubles" />
+
 	</bean>
 	<!-- <bean id="myCoach" class="com.practice.springdemo.TrackCoach"> </bean> -->
 
