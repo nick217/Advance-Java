@@ -11,11 +11,14 @@
 	<bean id="myFortune" class="com.practice.springdemo.HappyFortuneService">
 	</bean>
 
-	<bean id="myCoach" class="com.practice.springdemo.TrackCoach">
+	<bean id="myCoach" class="com.practice.springdemo.BaseballCoach">
 		<!-- setup constructor injection -->
 		<constructor-arg ref="myFortune" />
 	</bean>
 
+	<bean id="myTennisCoach" class="com.practice.springdemo.TennisCoach">
+		<property name="fortuneService" ref="myFortune" />
+	</bean>
 	<!-- <bean id="myCoach" class="com.practice.springdemo.TrackCoach"> </bean> -->
 
 	<!-- <bean id="myCoach" class="com.practice.springdemo.TennisCoach"> </bean> -->
