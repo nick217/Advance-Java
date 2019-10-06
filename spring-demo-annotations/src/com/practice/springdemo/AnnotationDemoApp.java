@@ -14,10 +14,13 @@ public class AnnotationDemoApp {
 		// Coach theCoach = context.getBean("myCoach", Coach.class);
 
 		// use the default bean-id
-		Coach theCoach = context.getBean("cricketCoach", Coach.class);
+		Coach theCoach = context.getBean("tennisCoach", Coach.class);
 
 		// call a method on the bean
 		System.out.println(theCoach.getDailyWorkout());
+
+		// call method to get daily fortune
+		System.out.println(theCoach.getDailyFortune());
 
 		// close the context
 		context.close();
