@@ -14,14 +14,15 @@
 	<bean id="myFortune" class="com.practice.springdemo.RandomFortuneService">
 	</bean>
 
-	<bean id="myCoach" class="com.practice.springdemo.BaseballCoach">
+	<bean id="myCoach" class="com.practice.springdemo.BaseballCoach"
+		scope="prototype">
 		<!-- setup constructor injection -->
 		<constructor-arg ref="myFortune" />
 	</bean>
 
 	<bean id="myTennisCoach" class="com.practice.springdemo.TennisCoach">
 		<property name="fortuneService" ref="myFortune" />
-		
+
 		<!-- Inject literal values -->
 		<property name="emailAddress" value="${foo.email}" />
 		<property name="team" value="${foo.team}" />

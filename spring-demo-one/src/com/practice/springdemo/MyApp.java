@@ -16,7 +16,10 @@ public class MyApp {
 
 		// let's call our new method for fortunes
 		System.out.println(theCoach.getDailyFortune());
-		
+
+		Coach anotherCoach = context.getBean("myCoach", Coach.class);
+
+		System.out.println("2 coach are same: " + (theCoach == anotherCoach));
 		// close the context
 		context.close();
 	}
