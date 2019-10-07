@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	@Autowired // field Injection
-	@Qualifier("randomFortuneService") // for resolving conflict among various
+	@Qualifier("happyFortuneService") // for resolving conflict among various
 										// implementations of FortuneSercie
 	private FortuneService fortuneService;
 
@@ -45,7 +45,7 @@ public class TennisCoach implements Coach {
 
 	@PostConstruct
 	public void createMyStuff(){
-		System.out.println(">> TennisCoach: Inside @PostConstructor annotated function");
+		System.out.println(">> TennisCoach: Inside @PostConstruct annotated function");
 	}
 	
 	@PreDestroy
