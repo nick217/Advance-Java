@@ -1,6 +1,7 @@
 package com.practice.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("myCoach")
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	@Autowired // field Injection
+	@Qualifier("randomFortuneService") // for resolving conflict among various
+										// implementations of FortuneSercie
 	private FortuneService fortuneService;
 
 	// add default constructor
@@ -15,30 +18,25 @@ public class TennisCoach implements Coach {
 		System.out.println(">> Tennis Coach: Inside default constructor");
 	}
 	/*
-	 * @Autowired // constructor Injection 
-	 * public TennisCoach(FortuneService fS)
+	 * @Autowired // constructor Injection public TennisCoach(FortuneService fS)
 	 * { fortuneService = fS; }
 	 */
 
 	/*
 	 * // add setter method
 	 * 
-	 * @Autowired // setter Injection 
-	 * public void setFortuneService(FortuneService fS) {
+	 * @Autowired // setter Injection public void
+	 * setFortuneService(FortuneService fS) {
 	 * System.out.println(">> TennisCoach: Inside setFortuneService()");
-	 * fortuneService = fS;
-	 * }
+	 * fortuneService = fS; }
 	 */
 
 	/*
-	@Autowired // field Injection
-	public void doSomeStuff(FortuneService fS) {
-		System.out.println(">> TennisCoach: Inside setFortuneService()");
-		fortuneService = fS;
+	 * @Autowired // field Injection public void doSomeStuff(FortuneService fS)
+	 * { System.out.println(">> TennisCoach: Inside setFortuneService()");
+	 * fortuneService = fS; }
+	 */
 
-	}
-	*/
-	
 	@Override
 	public String getDailyWorkout() {
 		return "Practice your backhand volley";
