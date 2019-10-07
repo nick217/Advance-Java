@@ -2,10 +2,12 @@ package com.practice.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //@Component("myCoach")
 @Component // this will now use the default bean-id.
+@Scope("prototype") //Make the bean scope as prototype.
 public class TennisCoach implements Coach {
 
 	@Autowired // field Injection
