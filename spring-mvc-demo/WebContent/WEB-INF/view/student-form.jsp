@@ -38,7 +38,7 @@
 		Java <form:radiobutton path="favouriteLanguage" value="Java" />
 		C++<form:radiobutton path="favouriteLanguage" value="C++" />
 		PHP <form:radiobutton path="favouriteLanguage" value="PHP" />
-		Javascript <form:radiobutton path="favouriteLanguage" value="JS" />
+		JavaScript <form:radiobutton path="favouriteLanguage" value="JS" />
 		<br>
 		<br>
 
