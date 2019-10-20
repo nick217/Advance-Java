@@ -8,6 +8,8 @@ public class Student {
 	private String lastName;
 	private String country;
 	private LinkedHashMap<String, String> countryOptions;
+	private String favouriteLanguage;
+	private String[] operatingSystems;
 
 	public Student() {
 		// populate country options: with ISO country codes
@@ -45,6 +47,22 @@ public class Student {
 
 	public LinkedHashMap<String, String> getCountryOptions() {
 		return countryOptions;
+	}
+
+	public String getFavouriteLanguage() {
+		return favouriteLanguage;
+	}
+
+	public void setFavouriteLanguage(String favouriteLanguage) {
+		this.favouriteLanguage = favouriteLanguage;
+	}
+
+	public String[] getOperatingSystems() {
+		return operatingSystems;
+	}
+
+	public void setOperatingSystems(String[] operatingSystems) {
+		this.operatingSystems = operatingSystems;
 	}
 
 }
