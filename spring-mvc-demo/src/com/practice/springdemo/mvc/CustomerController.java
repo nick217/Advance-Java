@@ -15,18 +15,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	//add an initbinder ... to trim input strings
-	//remove leading and trailing white spaces
-	//resolve issue for our validation
-	
+	// add an initbinder ... to trim input strings
+	// remove leading and trailing white spaces
+	// resolve issue for our validation
+
 	@InitBinder()
-	public void initBinder(WebDataBinder dataBinder){
-		//StringTrimmerEditor: defined in String API. 
-		StringTrimmerEditor stringTrimmerEditior = new StringTrimmerEditor(true); //true means set to null in case of empty after trimming.
-		
+	public void initBinder(WebDataBinder dataBinder) {
+		// StringTrimmerEditor: defined in String API.
+		StringTrimmerEditor stringTrimmerEditior = new StringTrimmerEditor(true); // true
+																					// means
+																					// set
+																					// to
+																					// null
+																					// in
+																					// case
+																					// of
+																					// empty
+																					// after
+																					// trimming.
+
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditior);
 	}
-	
+
 	@RequestMapping("/showForm")
 	public String showForm(Model theModel) {
 
@@ -35,10 +45,15 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/processForm")
-	public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer, 
-			BindingResult theBindingResult) {
-		
+	public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult theBindingResult) {
+
 		System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
+
+		// In case of error, theBindingResult contains the error code, whose
+		// error message can be
+		// overridden in resources.messages file
+		System.out.println("BindingResult" + theBindingResult);
+
 		if (theBindingResult.hasErrors()) {
 			return "customer-form";
 		}
