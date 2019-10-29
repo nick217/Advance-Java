@@ -10,6 +10,7 @@ import com.practice.hibernate.demo.entity.Student;
 
 public class QueryStudentDemo {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
 		// create session factory
@@ -31,9 +32,23 @@ public class QueryStudentDemo {
 			// query students: lastName = 'Seinfeld'
 			students = session.createQuery("from Student s where s.lastName='Seinfeld'").getResultList(); //table and column name as in code, not as in Db.
 			
+			// display the students
+			displayStudents(students);
+			
+			// query students: lastName = 'Seinfeld' OR firstName = 'Elaine'
+			students = session.createQuery("from Student s where "
+					+ "s.lastName='Seinfeld' OR s.firstName='Elaine'").getResultList();
 			
 			// display the students
 			displayStudents(students);
+			
+			// query students where email like '%comic.com'
+			students = session.createQuery("from Student s where "
+								+ "s.email LIKE '%comic.com'").getResultList();
+						
+			// display the students
+			displayStudents(students);
+			
 			// commit the transaction
 			session.getTransaction().commit();
 
