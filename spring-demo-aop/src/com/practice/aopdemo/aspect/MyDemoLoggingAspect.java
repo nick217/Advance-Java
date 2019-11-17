@@ -4,7 +4,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-@Aspect
+@Aspect //@Aspect on a class so that we can apply AOP proxys here
 @Component
 public class MyDemoLoggingAspect {
 
